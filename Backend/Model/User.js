@@ -5,6 +5,6 @@ password:{type:String,required:true},
 email:{type:String,required:true},
 role:{type:String,enum:["user","admin"]}
 })
-const user= mongoose.model("user",userSchema)//sandou9
+const User= mongoose.model("user",userSchema)//sandou9
 
-module.exports=user
+module.exports=User

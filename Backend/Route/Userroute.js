@@ -3,6 +3,9 @@ const user=require("../Model/user")
 const {registerCheck,loginCheck,validator}=require("../Middelwares/Validator")
 const bcrypt=require("bcrypt")
 const router=express.Router()
+const jwt=require("jsonwebtoken")
+const isAuth = require("../Middelwares/isAuth")
+
 
 
 router.get("/",async(req,res)=>{
@@ -53,5 +56,8 @@ router.post('/login', loginCheck(), validator, async (req, res) => {
         console.log(error);
         res.status(400).send({ msg: error.message })
 }})
+router.get("/current",isAuth(),(req,res)=>{
+    res.send({User:req.user})
+})
 
 module.exports= router
