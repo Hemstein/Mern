@@ -5,7 +5,7 @@ const ConnectDb=require("./config/ConnectDB")
 require("dotenv").config()
 
 ConnectDb()
-
+app.use("/uploads",express.static(__dirname+"/uploads"))
 app.use(express.json())
 app.use("/api/product",require("./Route/Productroute"))
 app.use("/api/user",require("./Route/Userroute"))

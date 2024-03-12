@@ -5,10 +5,11 @@ const bcrypt=require("bcrypt")
 const router=express.Router()
 const jwt=require("jsonwebtoken")
 const isAuth = require("../Middelwares/isAuth")
+const isadmin=require("../Middelwares/isAdmin")
 
 
 
-router.get("/",async(req,res)=>{
+router.get("/",isAuth(),isadmin,async(req,res)=>{
     try {
         const result=  await  user.find()
         res.send(result)
