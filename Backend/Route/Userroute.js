@@ -1,5 +1,5 @@
 const express=require("express")
-const user=require("../Model/user")
+const user=require("../Model/User")
 const {registerCheck,loginCheck,validator}=require("../Middelwares/Validator")
 const bcrypt=require("bcrypt")
 const router=express.Router()

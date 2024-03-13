@@ -7,7 +7,7 @@ const router=express.Router()
 
 router.get("/",async(req,res)=>{
     try{
-        const  result= await product.find()
+        const  result= await product.find().populate("seller")
         res.send(result)
     }
     catch (error){
