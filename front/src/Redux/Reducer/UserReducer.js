@@ -1,3 +1,4 @@
+import { addusersucces } from "../Const/User";
 
 
 
@@ -7,5 +8,14 @@ const initialState={
 }
 
 export const UserReducer=(state=initialState,action)=>{
-    return state
+    switch (action) {
+        case addusersucces: 
+        return {...state,user:action.payload}
+            
+           
+    
+        default:
+            return state
+    }
+    
 }

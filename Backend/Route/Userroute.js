@@ -6,6 +6,7 @@ const router=express.Router()
 const jwt=require("jsonwebtoken")
 const isAuth = require("../Middelwares/isAuth")
 const isadmin=require("../Middelwares/isAdmin")
+const upload = require("../utils/multer")
 
 
 
@@ -18,8 +19,9 @@ router.get("/",isAuth(),isadmin,async(req,res)=>{
      console.log(error)
  }
 })
-router.post("/register",registerCheck(),validator, async(req,res)=>{
+router.post("/register", upload("user").single("file"),registerCheck(),validator, async(req,res)=>{
     try {
+        const url = `${req.protocol}://${req.get("host")}/${req.file.path}`
         const{email,password}=req.body
         const existuser= await user.findOne({email})
         if(existuser){
@@ -27,6 +29,7 @@ router.post("/register",registerCheck(),validator, async(req,res)=>{
         }
         const hashedPassword = await bcrypt.hash(password, 10)
         const newuser=new user( req.body )
+        newuser.img= url
         newuser.password = hashedPassword
 
        

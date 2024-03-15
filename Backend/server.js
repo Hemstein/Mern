@@ -4,6 +4,13 @@ const port=4000
 const ConnectDb=require("./config/ConnectDB")
 require("dotenv").config()
 
+const cors = require("cors");
+const corsOptions = {
+   origin: '*',
+   credentials: true,
+   optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions))
 ConnectDb()
 app.use("/uploads",express.static(__dirname+"/uploads"))
 app.use(express.json())

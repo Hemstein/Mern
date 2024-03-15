@@ -1,4 +1,4 @@
 
 
 
-export const adduser= adduser
+export const addusersucces= "addusersucces"
