@@ -18,13 +18,13 @@ function Register() {
       data.append("password",newpassword)
       data.append("file",photo)
       // 2eme methode
-    axios.post('http://localhost:4000/api/user/register',data).then((result) => {
+   /* axios.post('http://localhost:4000/api/user/register',data).then((result) => {
       console.log(result.data)
      }).catch((err) => {
       console.log(err)
-   });
-      navigate("/login")
-  //dispatch(adduser(data))
+   });*/
+     // navigate("/login")
+  dispatch(adduser(data,navigate))
 
   } 
    return (

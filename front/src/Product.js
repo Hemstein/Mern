@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Product() {
+function Product({el}) {
   return (
     <div>
-      <h1>name</h1>
-      <p>description</p>
-      <img src=''/>
+      <h1>name:{el.name}</h1>
+      <p>description:{el.description}</p>
+      <img src={el.img}/>
     </div>
   )
 }

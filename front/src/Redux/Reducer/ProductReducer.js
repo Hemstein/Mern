@@ -1,4 +1,6 @@
 
+import { GETPRODUCT } from "../Const/product"
+
 
 
 const initialState={
@@ -6,8 +8,11 @@ const initialState={
  
 }
 
-export const ProductReducer=(state=initialState,action)=>{
+export const ProductReducer=(state=initialState,{type,payload})=>{
+ switch (type) {
+    case GETPRODUCT:
+    return {...state,products:payload} 
+  default:
+    return state
 
-return state
-
-}
+} }
