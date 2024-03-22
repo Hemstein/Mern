@@ -1,2 +1,5 @@
 export const GETPRODUCT="GETPRODUCT" 
 export const addproductsucces= "addprductsucces"
+export const editproductsucces="editproductsucces"
+export const GETONEPRODUCT="GETONEPRODUCT"
+export const deleteproductsucces="deleteproductsucces"

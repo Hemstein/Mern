@@ -14,6 +14,15 @@ router.get("/",async(req,res)=>{
     console.log(error)
     }
 })
+router.get("/:id",async(req,res)=>{
+    try{
+        const  result= await product.findById(req.params.id)
+        res.send(result)
+    }
+    catch (error){
+    console.log(error)
+    }
+})
 router.post("/",upload("products").single("file"),isAuth(),async(req,res)=>{
     try {
         const url = `${req.protocol}://${req.get("host")}/${req.file.path}`
